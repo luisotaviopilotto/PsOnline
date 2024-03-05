@@ -16,7 +16,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -36,7 +38,9 @@ THIRD_PARTY_APPS = [
     'app_tailwind',
 ]
 
-MY_APPS = []
+MY_APPS = [
+    'app_authentication',
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 

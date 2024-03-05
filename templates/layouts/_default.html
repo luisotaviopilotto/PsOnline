@@ -12,19 +12,17 @@
     <title>StockFlow2.0</title>
     {% block header %}{% endblock header %}
 </head>
-<body>
+<body class="bg-gray-100 h-screen flex justify-center items-center">
 	<!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
 
-	<div class="w-screen h-screen flex justify-start">
-        {% block sidebar %}{% endblock sidebar %}
-        {% block content %}{% endblock content %}
-        {% block footer %}{% endblock footer %}
-    </div>
+    {% block sidebar %}{% endblock sidebar %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
 
-	<!-- jQuery Plugin -->
+        <!-- jQuery Plugin -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 
 	<!-- Preloader -->
