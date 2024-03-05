@@ -1,19 +1,42 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-    <title>Django Tailwind</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-	</head>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'default_images/favicon.ico' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
-	</body>
-</html>
+    <!-- Stylesheet -->
+	<link rel="stylesheet" href="{% static 'preloader/css/styles.css' %}" type="text/css" media="screen, print"/>
+    <title>StockFlow2.0</title>
+    {% block header %}{% endblock header %}
+</head>
+<body>
+	<!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+	<div class="w-screen h-screen flex justify-start">
+        {% block sidebar %}{% endblock sidebar %}
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </div>
+
+	<!-- jQuery Plugin -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+	<!-- Preloader -->
+    <script type="text/javascript">
+	//<![CDATA[
+		$(window).on('load', function() { 
+			$('#status').fadeOut();
+			$('#preloader').delay(350).fadeOut('slow');
+			$('body').delay(350).css({'overflow':'visible'});
+			})
+	//]]>
+	</script>
+	<!-- TailwindCSS -->
+	{% tailwind_css %}
+</body>
